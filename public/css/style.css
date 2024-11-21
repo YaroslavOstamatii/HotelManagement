@@ -299,9 +299,8 @@ button {
 
 
 /** banner section **/
-.carousel-inner img {
-    width: 100%;
-    height: auto;
+.carousel-item img {
+    min-width: 100vw;
 }
 
 .banner_main {
