@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/ttt',[AdminController::class,'ttt']);
+
 Route::get('/',[AdminController::class,'home']);
 
 Route::get('/home',[AdminController::class,'index'])->name('home');
