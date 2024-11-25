@@ -55,5 +55,10 @@ class AdminController extends Controller
     {
         return view('admin.view_rooms',['rooms'=>Room::all()]);
     }
+    public function delete(Room $id)
+    {
+        $id->delete();
+        return  redirect()->back();
+    }
 
 }

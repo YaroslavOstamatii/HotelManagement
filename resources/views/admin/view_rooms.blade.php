@@ -19,18 +19,22 @@
                     <th> price</th>
                     <th> wifi</th>
                     <th> room_type</th>
+                    <th></th>
                 </tr>
                 </thead>
                 <tbody>
                 @foreach($rooms as $room)
-                <tr>
-                    <td>{{$room->room_title}}</td>
-                    <td><img src="{{asset('storage/' . $room->image)}}" style="width: 200px"></td>
-                    <td>{{$room->description}}</td>
-                    <td>{{$room->price}}</td>
-                    <td>{{$room->wifi}}</td>
-                    <td>{{$room->room_type}}</td>
-                </tr>
+                    <tr>
+                        <td>{{$room->room_title}}</td>
+                        <td><img src="{{asset('storage/' . $room->image)}}" style="width: 200px"></td>
+                        <td>{{$room->description}}</td>
+                        <td>{{$room->price}}</td>
+                        <td>{{$room->wifi}}</td>
+                        <td>{{$room->room_type}}</td>
+                        <td>
+                            <a onclick="return confirm('are you sure want to delete?');" class="btn btn-danger" href="{{url('rooms_delete',$room->id)}}">Delete</a>
+                        </td>
+                    </tr>
                 @endforeach
                 </tbody>
             </table>
