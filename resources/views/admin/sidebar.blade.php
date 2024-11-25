@@ -15,8 +15,7 @@
             <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-windows"></i>Hotel Room</a>
                 <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
                     <li><a href="{{route('rooms.create')}}">Add rooms</a></li>
-                    <li><a href="#">Page</a></li>
-                    <li><a href="#">Page</a></li>
+                    <li><a href="{{route('rooms.show')}}">View Rooms</a></li>
                 </ul>
             </li>
         </ul>

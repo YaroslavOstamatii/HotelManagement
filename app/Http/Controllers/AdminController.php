@@ -42,11 +42,18 @@ class AdminController extends Controller
             'room_type' => 'required|in:regular,premium,deluxe',
         ]);
 
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('images', 'public');
+            $data['image'] = $imagePath;
+        }
         Room::create($data);
-        Storage::disk('public')->put('/images', $data['image']);
 
-         return redirect()->route('home');
+        return redirect()->route('home');
 
+    }
+    public function show()
+    {
+        return view('admin.view_rooms',['rooms'=>Room::all()]);
     }
 
 }

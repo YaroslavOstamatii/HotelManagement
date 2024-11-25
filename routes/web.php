@@ -16,7 +16,8 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/',[AdminController::class,'home'])->name('home');
-Route::get('/room/create',[AdminController::class,'create'])->name('rooms.create');
-Route::post('/room',[AdminController::class,'store'])->name('rooms.store');
+Route::get('/rooms/create',[AdminController::class,'create'])->name('rooms.create');
+Route::get('/rooms/show',[AdminController::class,'show'])->name('rooms.show');
+Route::post('/rooms',[AdminController::class,'store'])->name('rooms.store');
 
 Route::get('/home',[AdminController::class,'index'])->name('home');
