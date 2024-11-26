@@ -75,4 +75,5 @@ class AdminController extends Controller
 
         return view('admin.view_rooms',['rooms'=>Room::all()]);
     }
+
 }

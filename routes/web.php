@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,5 +24,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/rooms_edit/{id}',[AdminController::class,'edit'])->name('rooms.edit');
     Route::patch('/rooms_update/{id}',[AdminController::class,'update'])->name('rooms.update');
     Route::get('/home',[AdminController::class,'index'])->name('home');
+
+    Route::get('/room_details',[HomeController::class,'details'])->name('room.details');
 });
 
