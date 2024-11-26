@@ -34,6 +34,9 @@
                         <td>
                             <a onclick="return confirm('are you sure want to delete?');" class="btn btn-danger" href="{{url('rooms_delete',$room->id)}}">Delete</a>
                         </td>
+                        <td>
+                            <a class="btn btn-info" href="{{url('rooms_edit',$room->id)}}">Update</a>
+                        </td>
                     </tr>
                 @endforeach
                 </tbody>

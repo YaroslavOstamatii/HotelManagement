@@ -20,5 +20,7 @@ Route::get('/rooms/create',[AdminController::class,'create'])->name('rooms.creat
 Route::get('/rooms/show',[AdminController::class,'show'])->name('rooms.show');
 Route::post('/rooms',[AdminController::class,'store'])->name('rooms.store');
 Route::get('/rooms_delete/{id}',[AdminController::class,'delete'])->name('rooms.delete');
+Route::get('/rooms_edit/{id}',[AdminController::class,'edit'])->name('rooms.edit');
+Route::patch('/rooms_update/{id}',[AdminController::class,'update'])->name('rooms.update');
 
 Route::get('/home',[AdminController::class,'index'])->name('home');

@@ -60,5 +60,19 @@ class AdminController extends Controller
         $id->delete();
         return  redirect()->back();
     }
+    public function edit(Room $id)
+    {
+        return view('admin.update_room',compact('id'));
+    }
+    public function update(Room $id, Request $request)
+    {
+        $data = $request->all();
+        if (isset($data['image'])){
+            $imagePath = $data['image']->store('images', 'public');
+            $data['image'] = $imagePath;
+        }
+        $id->update($data);
 
+        return view('admin.view_rooms',['rooms'=>Room::all()]);
+    }
 }
