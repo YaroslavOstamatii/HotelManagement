@@ -2,15 +2,26 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Booking;
 use App\Models\Room;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function details(Request $request)
+    public function details(Request $request, Room $id)
     {
-        $room = Room::findOrFail($request->input('room_id'));
+        return view('home.room_details',['room' => $id]);
+    }
+    public function add_booking(Request $request, Room $id)
+    {
+        $data = $request->all();
 
-        return view('home.room_details',['room' => $room]);
+        $request->validate([
+            'startDate' => 'required|date',
+            'endDate'=>'date|after:startDate'
+        ]);
+        Booking::create($data);
+
+        return redirect()->back();
     }
 }

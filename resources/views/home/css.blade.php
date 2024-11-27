@@ -10,11 +10,11 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <!-- bootstrap css -->
-<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
 <!-- style css -->
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="{{asset('css/style.css')}}">
 <!-- Responsive-->
-<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="{{asset('css/responsive.css')}}">
 <!-- fevicon -->
 <link rel="icon" href="images/fevicon.png" type="image/gif" />
 <!-- Scrollbar Custom CSS -->

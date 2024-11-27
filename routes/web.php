@@ -16,7 +16,6 @@ use Illuminate\Support\Facades\Route;
 */
 Route::get('/',[AdminController::class,'home'])->name('home');
 
-Route::middleware(['auth'])->group(function () {
     Route::get('/rooms/create',[AdminController::class,'create'])->name('rooms.create');
     Route::get('/rooms/show',[AdminController::class,'show'])->name('rooms.show');
     Route::post('/rooms',[AdminController::class,'store'])->name('rooms.store');
@@ -25,6 +24,6 @@ Route::middleware(['auth'])->group(function () {
     Route::patch('/rooms_update/{id}',[AdminController::class,'update'])->name('rooms.update');
     Route::get('/home',[AdminController::class,'index'])->name('home');
 
-    Route::get('/room_details',[HomeController::class,'details'])->name('room.details');
-});
+    Route::get('/room_details/{id}',[HomeController::class,'details'])->name('room.details');
+    Route::post('/add_booking/{id}',[HomeController::class,'add_booking']);
 

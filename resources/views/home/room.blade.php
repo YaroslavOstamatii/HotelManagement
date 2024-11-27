@@ -19,7 +19,7 @@
                         <div class="bed_room">
                             <h3>{{$room->room_title}}</h3>
                             <p>{!! Str::limit($room->description,70) !!}</p>
-                            <a class="btn btn-info text-white mt-3" href="{{route('room.details')}}?room_id={{ $room->id }}">Room Details</a>
+                            <a class="btn btn-info text-white mt-3" href="{{route('room.details',$room->id)}}">Room Details</a>
                         </div>
                     </div>
                 </div>
