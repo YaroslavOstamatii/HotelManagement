@@ -20,6 +20,15 @@ class HomeController extends Controller
             'startDate' => 'required|date',
             'endDate'=>'date|after:startDate'
         ]);
+        $data['room_id'] = $id->id;
+
+        $isBooked = Booking::where('room_id',$id->id)
+            ->where('startDate','<=',$request->get('endDate'))
+            ->where('endDate','>=',$request->get('startDate'))
+            ->exists();
+        if($isBooked){
+            return redirect()->back()->with('message','Booking already booked');
+        }
         Booking::create($data);
 
         return redirect()->back()->with('message','Add booking success');
