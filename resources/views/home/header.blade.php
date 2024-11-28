@@ -6,7 +6,7 @@
                 <div class="full">
                     <div class="center-desk">
                         <div class="logo">
-                            <a href="{{route('home')}}"><img src="{{asset('images/logo.png')}}" alt="#"/></a>
+                            <a href="{{url('/')}}"><img src="{{asset('images/logo.png')}}" alt="#"/></a>
                         </div>
                     </div>
                 </div>
@@ -20,7 +20,7 @@
                     <div class="collapse navbar-collapse" id="navbarsExample04">
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item active">
-                                <a class="nav-link" href="{{route('home')}}">Home</a>
+                                <a class="nav-link" href="{{url('/')}}">Home</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="about.html">About</a>

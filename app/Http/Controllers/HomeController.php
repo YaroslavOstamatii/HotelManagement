@@ -22,6 +22,6 @@ class HomeController extends Controller
         ]);
         Booking::create($data);
 
-        return redirect()->back();
+        return redirect()->back()->with('message','Add booking success');
     }
 }

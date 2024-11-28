@@ -56,6 +56,14 @@
             </div>
             <div class="col-md-4">
                 <h1 style="font-size: 40px!important;">Book Room</h1>
+
+                @if(session()->has('message'))
+                    <div class="alert alert-success">
+                        <button type="button" class="close" data-bs-dismiss="alert">x</button>
+                        {{session()->get('message')}}
+                    </div>
+                @endif
+
                 @if($errors)
                     @foreach($errors->all() as $err)
                         <li>{{$err}}</li>
@@ -105,5 +113,6 @@
 
 
 </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
