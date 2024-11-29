@@ -10,4 +10,8 @@ class Booking extends Model
     use HasFactory;
 
     protected $guarded = false;
+    public function room()
+    {
+        return $this->hasOne(Room::class,'id','room_id');
+    }
 }

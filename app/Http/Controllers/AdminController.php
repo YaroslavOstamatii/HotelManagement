@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Booking;
 use App\Models\Room;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -14,7 +15,7 @@ class AdminController extends Controller
         if (Auth::id()) {
             $userType = Auth::user()->user_type;
             if ($userType === 'user') {
-                return view('home.index',['rooms' => Room::all()]);
+                return view('home.index', ['rooms' => Room::all()]);
             } elseif ($userType === 'admin') {
                 return view('admin.index');
             }
@@ -24,13 +25,15 @@ class AdminController extends Controller
 
     public function home()
     {
-        return view('home.index',['rooms' => Room::all()]);
+        return view('home.index', ['rooms' => Room::all()]);
     }
+
     public function create()
     {
         return view('admin.create_room');
 
     }
+
     public function store(Request $request)
     {
         $data = $request->validate([
@@ -51,29 +54,37 @@ class AdminController extends Controller
         return redirect()->route('home');
 
     }
+
     public function show()
     {
-        return view('admin.view_rooms',['rooms'=>Room::all()]);
+        return view('admin.view_rooms', ['rooms' => Room::all()]);
     }
+
     public function delete(Room $id)
     {
         $id->delete();
-        return  redirect()->back();
+        return redirect()->back();
     }
+
     public function edit(Room $id)
     {
-        return view('admin.update_room',compact('id'));
+        return view('admin.update_room', compact('id'));
     }
+
     public function update(Room $id, Request $request)
     {
         $data = $request->all();
-        if (isset($data['image'])){
+        if (isset($data['image'])) {
             $imagePath = $data['image']->store('images', 'public');
             $data['image'] = $imagePath;
         }
         $id->update($data);
 
-        return view('admin.view_rooms',['rooms'=>Room::all()]);
+        return view('admin.view_rooms', ['rooms' => Room::all()]);
     }
 
+    public function bookings()
+    {
+        return view('admin.view_bookings', ['bookings' => Booking::all()]);
+    }
 }

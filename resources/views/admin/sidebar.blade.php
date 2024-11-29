@@ -18,5 +18,6 @@
                     <li><a href="{{route('rooms.show')}}">View Rooms</a></li>
                 </ul>
             </li>
+            <li><a href="{{url('bookings')}}"> <i class="icon-home"></i>Bookings </a></li>
         </ul>
     </nav>
