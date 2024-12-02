@@ -92,4 +92,14 @@ class AdminController extends Controller
         $booking->delete();
         return redirect()->back();
     }
+    public function approve_booking(Booking $booking)
+    {
+        $booking->update(['status' => 'approve']);
+        return redirect()->back();
+    }
+    public function reject_booking(Booking $booking)
+    {
+        $booking->update(['status' => 'rejected']);
+        return redirect()->back();
+    }
 }

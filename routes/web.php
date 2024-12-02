@@ -29,3 +29,6 @@ Route::get('/',[AdminController::class,'home'])->name('home');
     Route::get('/bookings',[AdminController::class,'bookings']);
     Route::get('/delete_booking/{booking}',[AdminController::class,'delete_booking']);
 
+    Route::get('/approve_booking/{booking}',[AdminController::class,'approve_booking']);
+    Route::get('/reject_booking/{booking}',[AdminController::class,'reject_booking']);
+
