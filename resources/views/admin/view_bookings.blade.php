@@ -24,6 +24,7 @@
                     <th> room title</th>
                     <th> room price</th>
                     <th> Room Image</th>
+                    <th> Delete</th>
                     <th></th>
                 </tr>
                 </thead>
@@ -41,6 +42,9 @@
                         <td>{{$booking->room->room_title}}</td>
                         <td>{{$booking->room->price}}</td>
                         <td><img src="{{asset('storage/' . $booking->room->image)}}" style="width: 200px"></td>
+                        <td>
+                            <a onclick="return confirm('are you shure?');" class="btn btn-danger" href="{{url('delete_booking',$booking->id)}}">Delete</a>
+                        </td>
                     </tr>
                 @endforeach
                 </tbody>

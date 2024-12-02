@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function details(Request $request, Room $id)
+    public function details(Room $id)
     {
         return view('home.room_details',['room' => $id]);
     }

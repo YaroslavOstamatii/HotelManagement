@@ -87,4 +87,9 @@ class AdminController extends Controller
     {
         return view('admin.view_bookings', ['bookings' => Booking::all()]);
     }
+    public function delete_booking(Booking $booking)
+    {
+        $booking->delete();
+        return redirect()->back();
+    }
 }
