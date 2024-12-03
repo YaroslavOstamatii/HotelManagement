@@ -31,4 +31,7 @@ Route::get('/',[AdminController::class,'home'])->name('home');
 
     Route::get('/approve_booking/{booking}',[AdminController::class,'approve_booking']);
     Route::get('/reject_booking/{booking}',[AdminController::class,'reject_booking']);
+    Route::get('/view_gallary',[AdminController::class,'view_gallary']);
+    Route::post('/upload_gallary',[AdminController::class,'upload_gallary']);
+    Route::get('/delete_gallary/{id}',[AdminController::class,'delete_gallary']);
 

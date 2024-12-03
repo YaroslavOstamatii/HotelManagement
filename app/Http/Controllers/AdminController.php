@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Booking;
+use App\Models\Gallary;
 use App\Models\Room;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -101,5 +102,34 @@ class AdminController extends Controller
     {
         $booking->update(['status' => 'rejected']);
         return redirect()->back();
+    }
+    public function view_gallary()
+    {
+
+        return view('admin.gallary',['gallary' => Gallary::all()]);
+    }
+    public function upload_gallary(Request $request)
+    {
+//        if ($request->hasFile('image')) {
+//            $imagePath = $request->file('image')->store('images', 'public');
+//            $data['image'] = $imagePath;
+//        }
+        $gallary = new Gallary();
+        $image = $request->image;
+        if($image){
+            $imageName = time().'.'.$image->getClientOriginalExtension();
+            $request->image->move('gallary',$imageName);
+            $gallary->image = $imageName;
+            $gallary->save();
+        }
+        return redirect()->back();
+
+    }
+
+    public function delete_gallary(Gallary $id)
+    {
+        $id->delete();
+        return redirect()->back();
+
     }
 }
