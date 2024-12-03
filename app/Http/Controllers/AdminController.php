@@ -26,7 +26,7 @@ class AdminController extends Controller
 
     public function home()
     {
-        return view('home.index', ['rooms' => Room::all()]);
+        return view('home.index', ['rooms' => Room::all(), 'gallary' => Gallary::all()]);
     }
 
     public function create()
@@ -129,7 +129,7 @@ class AdminController extends Controller
     public function delete_gallary(Gallary $id)
     {
         $id->delete();
-        return redirect()->back();
 
+        return redirect()->back();
     }
 }
