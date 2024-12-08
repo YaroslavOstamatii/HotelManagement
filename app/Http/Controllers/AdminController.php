@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Booking;
+use App\Models\Contact;
 use App\Models\Gallary;
 use App\Models\Room;
+use http\Message;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -131,5 +133,9 @@ class AdminController extends Controller
         $id->delete();
 
         return redirect()->back();
+    }
+    public function all_messages()
+    {
+        return view('admin.messages',['messages' => Contact::all()]);
     }
 }
