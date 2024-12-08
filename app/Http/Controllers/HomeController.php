@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Booking;
+use App\Models\Contact;
 use App\Models\Room;
 use Illuminate\Http\Request;
 
@@ -32,5 +33,13 @@ class HomeController extends Controller
         Booking::create($data);
 
         return redirect()->back()->with('message','Add booking success');
+    }
+    public function contact(Request $request)
+    {
+        $contact = new Contact();
+        $data = $request->all('name','email','phone','message');
+        $contact->create($data);
+
+        return redirect()->back()->with('message','Message send successfully');
     }
 }

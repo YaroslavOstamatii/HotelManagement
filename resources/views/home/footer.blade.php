@@ -60,3 +60,16 @@
 <!-- sidebar -->
 <script src="{{asset('js/jquery.mCustomScrollbar.concat.min.js')}}"></script>
 <script src="{{asset('js/custom.js')}}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script type="text/javascript">
+    $(window).scroll(function () {
+        sessionStorage.scrolltop = $(this).scrollTop();
+    });
+
+    $(document).ready(function () {
+        if (sessionStorage.scrolltop !== undefined) {
+            $(window).scrollTop(Number(sessionStorage.scrolltop));
+        }
+    });
+</script>
+
