@@ -15,19 +15,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/', [AdminController::class, 'home'])->name('home');
-
-
-
-
-
-
-
-
-
 Route::get('/room_details/{id}', [HomeController::class, 'details'])->name('room.details');
 Route::post('/add_booking/{id}', [HomeController::class, 'add_booking']);
-
 Route::post('/contact', [HomeController::class, 'contact']);
+Route::get('/our_rooms', [HomeController::class, 'our_rooms']);
+Route::get('/hotel_gallary', [HomeController::class, 'hotel_gallary']);
+
+
 Route::middleware(['auth','admin'])->group(function () {
     Route::get('/rooms/create', [AdminController::class, 'create'])->name('rooms.create');
     Route::get('/rooms/show', [AdminController::class, 'show'])->name('rooms.show');
@@ -46,6 +40,5 @@ Route::middleware(['auth','admin'])->group(function () {
     Route::get('/all_messages', [AdminController::class, 'all_messages']);
     Route::get('/send_mail/{contact}', [AdminController::class, 'send_mail']);
     Route::post('/mail/{contact}', [AdminController::class, 'mail']);
-
 });
 

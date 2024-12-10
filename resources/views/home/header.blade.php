@@ -26,10 +26,10 @@
                                 <a class="nav-link" href="about.html">About</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="room.html">Our room</a>
+                                <a class="nav-link" href="{{"our_rooms"}}">Our room</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="gallery.html">Gallery</a>
+                                <a class="nav-link" href="{{"hotel_gallary"}}">Gallery</a>
                             </li>
 
                             <li class="nav-item">
