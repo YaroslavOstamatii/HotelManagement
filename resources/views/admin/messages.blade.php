@@ -10,19 +10,6 @@
     <div class="page-header">
             <div class="text-center">
             <h1 style="font-size: 32px;">Messages</h1>
-{{--            <form action="{{url('upload_gallary')}}" method="post" enctype="multipart/form-data">--}}
-{{--                @csrf--}}
-{{--                <div class="p-3">--}}
-{{--                    <label>Upload image</label>--}}
-{{--                    <input type="file" name="image">--}}
-{{--                    @error('image')--}}
-{{--                    <div class="text-danger">{{ $message }}</div>--}}
-{{--                    @enderror--}}
-{{--                </div>--}}
-{{--                <div class="pad">--}}
-{{--                    <input class="btn btn-success" type="submit" value="Add Image">--}}
-{{--                </div>--}}
-{{--            </form>--}}
         </div>
         <table class="table">
             <thead>
@@ -32,6 +19,7 @@
                 <th> Email </th>
                 <th> Phone </th>
                 <th> Messages </th>
+                <th> Send Email </th>
             </tr>
             </thead>
             <tbody>
@@ -42,6 +30,7 @@
                     <td>{{$item->email}}</td>
                     <td>{{$item->phone}}</td>
                     <td>{{$item->message}}</td>
+                    <td> <a class="btn btn-success text-white" href="{{url('send_mail',$item->id)}}"> Send mail</a></td>
                 </tr>
             @endforeach
             </tbody>

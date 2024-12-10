@@ -6,10 +6,10 @@ use App\Models\Booking;
 use App\Models\Contact;
 use App\Models\Gallary;
 use App\Models\Room;
-use http\Message;
+use App\Notifications\SendEmailNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Notification;
 
 class AdminController extends Controller
 {
@@ -137,5 +137,22 @@ class AdminController extends Controller
     public function all_messages()
     {
         return view('admin.messages',['messages' => Contact::all()]);
+    }
+    public function send_mail(Contact $contact)
+    {
+        return view('admin.send_mail',['contact' => $contact]);
+    }
+    public function mail(Request $request,Contact $contact)
+    {
+        $details = [
+            'greeting' => $request->greeting,
+            'body' => $request->body,
+            'action_text' => $request->action_text,
+            'action_url' => $request->action_url,
+            'end_line' => $request->end_line,
+        ];
+
+        Notification::send($contact, new SendEmailNotification($details));
+        return redirect()->back();
     }
 }
